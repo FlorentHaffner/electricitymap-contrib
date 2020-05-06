@@ -4,7 +4,7 @@ import React, {
   useRef,
 } from 'react';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { noop } from 'lodash';
 
 import { dispatchApplication } from '../../store';
@@ -17,9 +17,30 @@ import {
 
 import MapExchangeTooltip from '../tooltips/mapexchangetooltip';
 
+const slidingHighlight = keyframes`
+ 10% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 5%, rgba(0,0,0,1) 10%); }
+ 15% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 15%, rgba(0,0,0,1) 30%); }
+ 20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,1) 40%); }
+ 20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,1) 50%); }
+ 30% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 60%); }
+ 35% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,1) 65%); }
+ 40% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,1) 70%); }
+ 45% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 15%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,1) 75%); }
+ 50% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,1) 80%); }
+ 55% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 25%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,1) 85%); }
+ 60% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,1) 90%); }
+ 65% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,1) 95%); }
+ 70% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,1) 100%); }
+ 75% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,1) 100%); }
+ 80% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,1) 100%); }
+ 85% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.7) 85%, rgba(0,0,0,1) 100%); }
+ 90% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0.8) 95%, rgba(0,0,0,1) 100%); }
+`;
+
 // TODO: Fix map scrolling when hovering over arrows when moving map to React.
 // See https://github.com/tmrowco/electricitymap-contrib/issues/2309.
 const ArrowImage = styled.img`
+  animation: ${slidingHighlight} 2s infinite;
   cursor: pointer;
   overflow: hidden;
   position: absolute;
@@ -52,7 +73,8 @@ const Arrow = React.memo(({
       const prefix = colorBlindModeEnabled ? 'colorblind-' : '';
       const intensity = exchangeQuantizedIntensityScale(co2intensity);
       const speed = exchangeSpeedCategoryScale(Math.abs(netFlow));
-      return resolvePath(`images/${prefix}arrow-${intensity}-animated-${speed}.gif`);
+      return resolvePath(`images/${prefix}arrow-${intensity}.png`);
+      // return resolvePath(`images/${prefix}arrow-${intensity}-animated-${speed}.gif`);
     },
     [colorBlindModeEnabled, co2intensity, netFlow],
   );
