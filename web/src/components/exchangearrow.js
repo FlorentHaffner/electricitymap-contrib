@@ -10,7 +10,7 @@ const slidingHighlight = keyframes`
   10% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 5%, rgba(0,0,0,0) 10%); }
   15% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0) 30%); }
   20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0) 40%); }
-  20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 25%, rgba(0,0,0,0) 50%); }
+  25% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 25%, rgba(0,0,0,0) 50%); }
   30% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 60%); }
   35% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0) 65%); }
   40% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 70%); }
