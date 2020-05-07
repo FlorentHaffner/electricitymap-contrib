@@ -18,36 +18,44 @@ import {
 import MapExchangeTooltip from '../tooltips/mapexchangetooltip';
 
 const slidingHighlight = keyframes`
- 10% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 5%, rgba(0,0,0,1) 10%); }
- 15% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 15%, rgba(0,0,0,1) 30%); }
- 20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,1) 40%); }
- 20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,1) 50%); }
- 30% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 60%); }
- 35% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,1) 65%); }
- 40% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,1) 70%); }
- 45% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 15%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,1) 75%); }
- 50% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,1) 80%); }
- 55% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 25%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,1) 85%); }
- 60% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,1) 90%); }
- 65% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,1) 95%); }
- 70% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,1) 100%); }
- 75% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,1) 100%); }
- 80% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,1) 100%); }
- 85% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0.7) 85%, rgba(0,0,0,1) 100%); }
- 90% { mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0.8) 95%, rgba(0,0,0,1) 100%); }
+  0% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%); }
+ 10% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 5%, rgba(0,0,0,0) 10%); }
+ 15% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0) 30%); }
+ 20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0) 40%); }
+ 20% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 25%, rgba(0,0,0,0) 50%); }
+ 30% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 60%); }
+ 35% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 5%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0) 65%); }
+ 40% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 70%); }
+ 45% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 15%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0) 75%); }
+ 50% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 80%); }
+ 55% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0) 85%); }
+ 60% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0) 90%); }
+ 65% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 35%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0) 95%); }
+ 70% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%); }
+ 75% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%); }
+ 80% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0) 100%); }
+ 85% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0) 100%); }
+ 90% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 90%, rgba(0,0,0,0.2) 95%, rgba(0,0,0,0) 100%); }
+100% { mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%); }
 `;
 
-// TODO: Fix map scrolling when hovering over arrows when moving map to React.
-// See https://github.com/tmrowco/electricitymap-contrib/issues/2309.
 const ArrowImage = styled.img`
-  animation: ${slidingHighlight} 2s infinite;
-  cursor: pointer;
-  overflow: hidden;
   position: absolute;
-  pointer-events: all;
   image-rendering: crisp-edges;
+  overflow: hidden;
   left: -25px;
   top: -41px;
+  width: 50px;
+  height: 82px;
+`;
+
+const HoverableArrowImage = styled(ArrowImage)`
+  cursor: pointer;
+  pointer-events: all;
+`;
+
+const AnimatedHighlight = styled(ArrowImage)`
+  animation: ${slidingHighlight} ${props => props.speed} infinite;
 `;
 
 const Arrow = React.memo(({
@@ -74,7 +82,6 @@ const Arrow = React.memo(({
       const intensity = exchangeQuantizedIntensityScale(co2intensity);
       const speed = exchangeSpeedCategoryScale(Math.abs(netFlow));
       return resolvePath(`images/${prefix}arrow-${intensity}.png`);
-      // return resolvePath(`images/${prefix}arrow-${intensity}-animated-${speed}.gif`);
     },
     [colorBlindModeEnabled, co2intensity, netFlow],
   );
@@ -106,21 +113,29 @@ const Arrow = React.memo(({
     [netFlow, transform],
   );
 
+  if (!isVisible || transform.k < 0.1) return null;
+
   return (
-    <ArrowImage
+    <div
+      className="arrow"
       style={{
-        display: isVisible ? '' : 'none',
         transform: `translateX(${transform.x}px) translateY(${transform.y}px) rotate(${transform.r}deg) scale(${transform.k})`,
+        position: 'absolute',
       }}
-      src={imageSource}
-      width="49"
-      height="81"
-      /* Support only click events in mobile mode, otherwise react to mouse hovers */
-      onClick={isMobile ? (e => mouseMoveHandler(arrow, e.clientX, e.clientY)) : noop}
-      onMouseMove={!isMobile ? (e => mouseMoveHandler(arrow, e.clientX, e.clientY)) : noop}
-      onMouseOut={mouseOutHandler}
-      onBlur={mouseOutHandler}
-    />
+    >
+      <HoverableArrowImage
+        src={imageSource}
+        /* Support only click events in mobile mode, otherwise react to mouse hovers */
+        onClick={isMobile ? (e => mouseMoveHandler(arrow, e.clientX, e.clientY)) : noop}
+        onMouseMove={!isMobile ? (e => mouseMoveHandler(arrow, e.clientX, e.clientY)) : noop}
+        onMouseOut={mouseOutHandler}
+        onBlur={mouseOutHandler}
+      />
+      <AnimatedHighlight
+        src={resolvePath(`images/arrow-background.png`)}
+        speed="2s"
+      />
+    </div>
   );
 });
 
