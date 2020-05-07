@@ -132,7 +132,7 @@ const Arrow = React.memo(({
         onBlur={mouseOutHandler}
       />
       <AnimatedHighlight
-        src={resolvePath(`images/arrow-background.png`)}
+        src={resolvePath(`images/arrow-highlight.png`)}
         speed="2s"
       />
     </div>
