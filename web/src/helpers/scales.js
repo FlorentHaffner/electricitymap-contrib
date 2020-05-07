@@ -27,13 +27,12 @@ export const solarColor = scaleLinear()
 
 // ** Exchange
 
-export const exchangeQuantizedIntensityScale = scaleQuantize()
+export const quantizedCo2IntensityScale = scaleQuantize()
   .domain([0, 800])
   .range([0, 80, 160, 240, 320, 400, 480, 560, 640, 720, 800])
   .unknown('nan');
 
-export const exchangeSpeedCategoryScale = scaleLinear()
+export const exchangeSpeedScale = scaleQuantize()
   .domain([500, 5000])
-  .rangeRound([0, 2])
-  .unknown(0)
-  .clamp(true);
+  .range(['2s', '1s', '0.5s'])
+  .unknown('2s');
